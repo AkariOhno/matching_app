@@ -1,0 +1,51 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        投稿者：<%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      <div class="post-name">
+        <%= @post.name %>
+      </div>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <i class="fas fa-star liked-star"></i>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <i class="far fa-star unlike-star"></i>
+        <% end %>
+      <% end %>
+      <%= @likes_count %>
+      <% if @post.image_name %>
+      <div class="post-image">
+        <%= image_tag "/post_images/#{@post.image_name}" %>
+      </div>
+      <% end %>
+      <div class="post-gender">
+        <%= @post.gender %>
+      </div>
+      <div class="post-age">
+        <%= @post.age %>歳
+      </div>
+      <div class="post-breed">
+        品種：<%= @post.breed %>
+      </div>
+      <div class="post-content">
+        <%= @post.content %>
+      </div>
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+      <% if @user.id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+      <% else %>
+        <div class="posts-menu">
+          <%= link_to("里親申請", "/adopt/#{@post.id}/request") %>
+      <% end %>
+    </div>
+  </div>
+</div>

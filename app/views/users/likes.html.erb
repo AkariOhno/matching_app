@@ -1,0 +1,29 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <h2 class="user-name"><%= @user.name %></h2>
+    </div>
+    <div class="star-index">
+      ブックマーク一覧
+    </div>
+    <% @likes.each do |like| %>
+    <% post = Post.find_by(id: like.post_id) %>
+    <% user = User.find_by(id: post.user_id) %>
+      <div class="posts-index-item">
+        <%= image_tag "/sample.jpg" %>
+        <span class="names">
+          <span class="name"><%= link_to(post.name, "/posts/#{post.id}") %></span>
+          <% if post.gender == "オス" %>
+            <i class="fas fa-mars gender male"></i>
+            <% else %>
+            <i class="fas fa-venus gender female"></i>
+          <% end %>
+            <i class="fas fa-star liked-star"></i>
+        </span>
+        <span class="user">投稿者：<%= user.name %></span>
+        <span class="age">年齢：<%= post.age %>歳</span>
+        <span class="breed">品種：<%= "#{post.animal}/#{post.breed}" %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

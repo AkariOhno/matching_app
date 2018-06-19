@@ -1,0 +1,40 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <h2 class="user-name"><%= @user.name %></h2>
+      <p class="user-email"><%= @user.email %></p>
+    </div>
+    <% if @user.id == @current_user.id %>
+      <div class="user-menus">
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      </div>
+      <div class="star-index">
+        <%= link_to("ブックマーク一覧", "/users/#{@user.id}/likes") %>
+      </div>
+    <% end %>
+    <div class="posts-index">募集一覧</div>
+    <% @posts.each do |post| %>
+    <% user = User.find_by(id: post.user_id) %>
+    <% likes = Like.where(post_id: post.id) %>
+      <div class="posts-index-item">
+        <%= image_tag "/sample.jpg" %>
+        <span class="names">
+          <span class="name"><%= link_to(post.name, "/posts/#{post.id}") %></span>
+          <% if post.gender == "オス" %>
+            <i class="fas fa-mars gender male"></i>
+            <% else %>
+            <i class="fas fa-venus gender female"></i>
+          <% end %>
+          <% likes.each do |like| %>
+            <% if like.user_id == @current_user.id %>
+              <i class="fas fa-star liked-star"></i>
+            <% end %>
+          <% end %>
+        </span>
+        <span class="user">投稿者：<%= user.name %></span>
+        <span class="age">年齢：<%= post.age %>歳</span>
+        <span class="breed">品種：<%= "#{post.animal}/#{post.breed}" %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.search-button{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
+
+.search-button a{
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #696969;
+  background: #ffb6c1;
+  transition: .4s;
+  border-radius: 50px;
+}
+
+.search-button a:hover{
+  background: #db7093;
+  color: white;
+}
+
+.now a{
+  background: #db7093;
+  color: white;
+}
+
+.posts-index-item{
+  position: relative;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.posts-index-item a{
+  font-size: 50px;
+}
+
+.male{
+  color: #1e90ff;
+  font-size: 2em;
+}
+
+.female{
+  color: #ff69b4;
+  font-size: 2em;
+}
+
+.posts-index-item .names{
+  position: absolute;
+  top: 0px;
+  left: 150px;
+}
+
+.posts-index-item .user{
+  position: absolute;
+  top: 75px;
+  left: 160px;
+}
+
+.posts-index-item .age{
+  position: absolute;
+  top: 100px;
+  left: 150px;
+}
+
+.posts-index-item .breed{
+  position: absolute;
+  top: 100px;
+  left: 280px;
+}
+
+
+.post-user-name{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.post-name{
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.liked-star, .unlike-star{
+  color: #ff7f50;
+  font-size: 2em;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.post-gender, .post-age, .post-breed, .post-content{
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.post-time{
+  margin-top: 5px;
+  margin-left: 30px;
+  font-size: 8px;
+  
+}
+
+
+
+.post-menus{
+  margin-top: 5px;
+  margin-left: 30px;
+}
