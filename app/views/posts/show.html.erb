@@ -44,7 +44,7 @@
         </div>
       <% else %>
         <div class="posts-menu">
-          <%= link_to("里親申請", "/adopt/#{@post.id}/request") %>
+          <%= link_to("里親申請", "/adopt/#{@post.id}/request", {method: "post"}) %>
       <% end %>
     </div>
   </div>
