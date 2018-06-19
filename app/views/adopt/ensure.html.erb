@@ -1,0 +1,18 @@
+<div class="main request-new">
+  <div class="container">
+    <h1 class="form-heading">里親申請する</h1>
+    <p class="form-message">以下の内容を投稿者に送信します。よろしいですか？</p>
+      <div class="form">
+        <div class="form-body">
+          <p>ユーザー名：<%= @current_user.name %></p>
+          <p>メールアドレス：<%= @current_user.email %></p>
+          <p>年齢：<%= @current_user.age %>歳</p>
+          <p>住所：<%= @current_user.prefecture @current_user.city %></p>
+          <p>職業：<%= @current_user.job %></p>
+          <p>家族構成：大人<%= @current_user.family_adult %>人、子ども<%= @current_user.family_child %>人</p>
+        </div>
+        <%= link_to("送信する", "/adopt/#{@post.id}/send") %>
+        <%= link_to("変更する", "/users/#{@current_user.id}/edit") %>
+      </div>
+  </div>
+</div>

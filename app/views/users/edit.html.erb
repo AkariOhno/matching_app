@@ -14,6 +14,17 @@
           <input name="name" value="<%= @user.name %>">
           <p>メールアドレス</p>
           <input name="email" value="<%= @user.email %>">
+          <p>年齢</p>
+          <input name="age" value="<%= @user.age %>">
+          <p>住所：都道府県</p>
+          <input name="prefecture" value="<%= @user.prefecture %>">
+          <p>住所：市町村</p>
+          <input name="city" value="<%= @user.city %>">
+          <p>職業</p>
+          <input name="job" value="<%= @user.job %>">
+          <p>家族構成(自分を含みます)</p>
+          大人：<input name="family_adult" value="<%= @user.family_adult %>">
+          子ども：<input name="family_child" value="<%= @user.family_child %>">
           <input type="submit" value="保存">
         <% end %>
       </div>

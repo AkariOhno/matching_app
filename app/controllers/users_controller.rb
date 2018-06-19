@@ -70,6 +70,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.age = params[:age]
+    @user.prefecture = params[:prefecture]
+    @user.city = params[:city]
+    @user.job = params[:job]
+    @user.family_adult = params[:family_adult]
+    @user.family_child = params[:family_child]
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
