@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  post 'adopt/:id/request' => 'adopt#request'
-  get 'adopt/:id/ensure' => 'adopt#ensure'
-  post 'adopt/:id/send' => 'adopt#send'
 
   post 'likes/:post_id/create' => 'likes#create'
   post 'likes/:post_id/destroy' => 'likes#destroy'
@@ -31,6 +28,10 @@ Rails.application.routes.draw do
   post 'posts/:id/update' => 'posts#update'
   post 'posts/:id/destroy' => 'posts#destroy'
   get 'posts/:id' => 'posts#show'
+
+  get 'adopt/:id/request' => 'adopt#request'
+  get 'adopt/:id/ensure' => 'adopt#ensure'
+  get 'adopt/:id/send' => 'adopt#send'
 
   get '/' => 'home#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

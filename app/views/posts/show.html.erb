@@ -17,11 +17,9 @@
         <% end %>
       <% end %>
       <%= @likes_count %>
-      <% if @post.image_name %>
       <div class="post-image">
-        <%= image_tag "/post_images/#{@post.image_name}" %>
+        <%= image_tag "/post_images/#{@post.image_name}", :size => "300x300" %>
       </div>
-      <% end %>
       <div class="post-gender">
         <%= @post.gender %>
       </div>
@@ -43,8 +41,9 @@
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
         </div>
       <% else %>
-        <div class="posts-menu">
-          <%= link_to("里親申請", "/adopt/#{@post.id}/request", {method: "post"}) %>
+        <div class="post-menus">
+          <%= link_to("里親申請", "/adopt/#{@post.id}/request") %>
+        </div>
       <% end %>
     </div>
   </div>

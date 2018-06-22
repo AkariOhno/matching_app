@@ -37,13 +37,14 @@ before_action :ensure_correct_post, {only: [:edit, :update, :destroy]}
       content: params[:content],
       user_id: @current_user.id
     )
-    if params[:image]
-      @post.image_name = "#{@post.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/post_images/#{@post.image_name}", image.read)
-    end
     if @post.save
       flash[:notice] = "投稿を作成しました"
+      if params[:image]
+        @post.image_name = "#{@post.id}.jpg"
+        @post.save
+        image = params[:image]
+        File.binwrite("public/post_images/#{@post.image_name}", image.read)
+      end
       redirect_to("/posts/index")
     else
       render("posts/new")
@@ -63,6 +64,8 @@ before_action :ensure_correct_post, {only: [:edit, :update, :destroy]}
   def update
     @post = Post.find_by(id: params[:id])
     if params[:image]
+      @post.image_name = "#{@post.id}.jpg"
+      @post.save
       image = params[:image]
       File.binwrite("public/post_images/#{@post.image_name}", image.read)
     end
