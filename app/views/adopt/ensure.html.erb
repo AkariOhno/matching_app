@@ -7,12 +7,12 @@
           <p>ユーザー名：<%= @current_user.name %></p>
           <p>メールアドレス：<%= @current_user.email %></p>
           <p>年齢：<%= @current_user.age %>歳</p>
-          <p>住所：<%= @current_user.prefecture @current_user.city %></p>
+          <p>住所：<%= @current_user.prefecture %><%= @current_user.city %></p>
           <p>職業：<%= @current_user.job %></p>
           <p>家族構成：大人<%= @current_user.family_adult %>人、子ども<%= @current_user.family_child %>人</p>
         </div>
-        <%= link_to("送信する", "/adopt/#{@post.id}/send") %>
-        <%= link_to("変更する", "/users/#{@current_user.id}/edit") %>
+        <%= link_to("送信する", "/adopt/#{@post.id}/send_request", {method: "post"}) %>
+        <%= link_to("ユーザー情報を登録・変更する", "/users/#{@current_user.id}/edit") %>
       </div>
   </div>
 </div>

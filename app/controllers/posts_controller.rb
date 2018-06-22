@@ -85,7 +85,11 @@ before_action :ensure_correct_post, {only: [:edit, :update, :destroy]}
 
   def destroy
     @post = Post.find_by(id: params[:id])
+    @likes = Like.where(post_id: @post.id)
     @post.destroy
+    @likes.each do |like|
+      like.destroy
+    end
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end

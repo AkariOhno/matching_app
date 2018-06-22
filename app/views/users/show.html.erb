@@ -17,7 +17,7 @@
     <% user = User.find_by(id: post.user_id) %>
     <% likes = Like.where(post_id: post.id) %>
       <div class="posts-index-item">
-        <%= image_tag "/sample.jpg" %>
+        <%= image_tag "/post_images/#{post.image_name}", :width => "128", :height => "128" %>
         <span class="names">
           <span class="name"><%= link_to(post.name, "/posts/#{post.id}") %></span>
           <% if post.gender == "オス" %>
