@@ -1,0 +1,43 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <h2 class="user-name"><%= @user.name %></h2>
+      <p class="user-email"><%= @user.email %></p>
+    </div>
+
+    <div class="user-menus">
+      <%= link_to("編集", "/users/#{@user.id}/edit") %>
+    </div>
+    <div class="index-btn">
+      <%= link_to("募集一覧", "/users/#{@user.id}") %>
+      <%= link_to("ブックマーク一覧", "/users/#{@user.id}/likes") %>
+      <%= link_to("里親申請中一覧", "/users/#{@user.id}/requesting") %>
+      <span class="now"><%= link_to("里親申し込み一覧", "/users/#{@user.id}/requested") %></span>
+    </div>
+    <% @posts.each do |post| %>
+      <% user = User.find_by(id: post.user_id) %>
+      <% requests = Request.where(receiver_id: post.id) %>
+      <div class="posts-index-item">
+        <div class="sender-index">
+        <% requests.each do |request| %>
+          <% sender = User.find_by(id: request.sender_id) %>
+          <span class="sender"><%= link_to(sender.name, "/users/#{request.id}/request_show") %></span>
+        <% end %>が里親申請しています。
+        </div>
+
+          <%= image_tag "/post_images/#{post.image_name}", :width => "128", :height => "128" %>
+          <span class="names">
+            <span class="name"><%= link_to(post.name, "/posts/#{post.id}") %></span>
+            <% if post.gender == "オス" %>
+              <i class="fas fa-mars gender male"></i>
+              <% else %>
+              <i class="fas fa-venus gender female"></i>
+            <% end %>
+          </span>
+          <span class="user">投稿者：<%= user.name %></span>
+          <span class="age">年齢：<%= post.age %>歳</span>
+          <span class="breed">品種：<%= "#{post.animal}/#{post.breed}" %></span>
+        </div>
+    <% end %>
+  </div>
+</div>

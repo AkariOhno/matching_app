@@ -17,6 +17,21 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
   end
 
+  def requesting
+    @user = User.find_by(id: params[:id])
+    @requests = Request.where(sender_id: @user.id)
+  end
+
+  def requested
+    @user = User.find_by(id: params[:id])
+    @posts = Post.where(user_id: @user.id)
+  end
+
+  def request_show
+    @request = Request.find_by(id: params[:id])
+    @sender = User.find_by(id: @request.sender_id)
+  end
+
   def new
     @user = User.new
   end

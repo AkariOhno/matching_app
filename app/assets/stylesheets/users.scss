@@ -2,7 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.index-btn{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
 
+.index-btn a{
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #696969;
+  background: #ffb6c1;
+  transition: .4s;
+  border-radius: 50px;
+}
+
+.index-btn a:hover{
+  background: #db7093;
+  color: white;
+}
+
+.now a{
+  background: #db7093;
+  color: white;
+}
 
 .form-heading, .users-heading, .user-name{
   margin-top: 20px;
@@ -36,7 +64,7 @@
   margin-left: 50px;
 }
 
-.posts-index-item a{
+.name a{
   font-size: 50px;
 }
 
@@ -52,24 +80,24 @@
 
 .posts-index-item .names{
   position: absolute;
-  top: 0px;
+  top: 15px;
   left: 150px;
 }
 
 .posts-index-item .user{
   position: absolute;
-  top: 75px;
+  top: 90px;
   left: 160px;
 }
 
 .posts-index-item .age{
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 150px;
 }
 
 .posts-index-item .breed{
   position: absolute;
-  top: 100px;
+  top: 120px;
   left: 280px;
 }

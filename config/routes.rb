@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'users/logout' => 'users#logout'
 
   get 'users/:id/likes' => 'users#likes'
+  get 'users/:id/requesting' => 'users#requesting'
+  get 'users/:id/requested' => 'users#requested'
+  get 'users/:id/request_show' => 'users#request_show'
   get 'users/:id/edit' => 'users#edit'
   post 'users/:id/update' => 'users#update'
   get 'users/:id' => 'users#show'

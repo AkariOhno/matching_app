@@ -7,10 +7,17 @@ class AdoptController < ApplicationController
   end
 
   def send_request
-    @post = Post.find_by(id: params[:id])
-    @user = User.find_by(id: @post.user_id)
-    flash[:notice] = "里親申請しました"
-    redirect_to("/posts/index")
+    @request = Request.new(
+      content: params[:content],
+      sender_id: @current_user.id,
+      receiver_id: params[:id]
+    )
+    if @request.save
+      flash[:notice] = "里親申請しました"
+      redirect_to("/posts/index")
+    else
+      render("/adopt/ensure")
+    end
   end
 
   def check_user_info

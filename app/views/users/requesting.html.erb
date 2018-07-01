@@ -10,13 +10,12 @@
     </div>
     <div class="index-btn">
       <%= link_to("募集一覧", "/users/#{@user.id}") %>
-      <span class="now"><%= link_to("ブックマーク一覧", "/users/#{@user.id}/likes") %></span>
-      <%= link_to("里親申請中一覧", "/users/#{@user.id}/requesting") %>
+      <%= link_to("ブックマーク一覧", "/users/#{@user.id}/likes") %>
+      <span class="now"><%= link_to("里親申請中一覧", "/users/#{@user.id}/requesting") %></span>
       <%= link_to("里親申し込み一覧", "/users/#{@user.id}/requested") %>
     </div>
-    <% @likes.each do |like| %>
-    <% post = Post.find_by(id: like.post_id) %>
-    <% user = User.find_by(id: post.user_id) %>
+    <% @requests.each do |request| %>
+    <% post = Post.find_by(id: request.receiver_id) %>
       <div class="posts-index-item">
         <%= image_tag "/post_images/#{post.image_name}", :width => "128", :height => "128" %>
         <span class="names">
@@ -26,11 +25,8 @@
             <% else %>
             <i class="fas fa-venus gender female"></i>
           <% end %>
-            <i class="fas fa-star liked-star"></i>
         </span>
-        <span class="user">投稿者：<%= user.name %></span>
-        <span class="age">年齢：<%= post.age %>歳</span>
-        <span class="breed">品種：<%= "#{post.animal}/#{post.breed}" %></span>
+        <span class="content">送信したコメント：<%= request.content %></span>
       </div>
     <% end %>
   </div>

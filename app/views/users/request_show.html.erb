@@ -1,0 +1,16 @@
+<div class="main request-new">
+  <div class="container">
+    <h1 class="form-heading">里親申請</h1>
+      <div class="form">
+        <div class="form-body">
+          <p>ユーザー名：<%= @sender.name %></p>
+          <p>メールアドレス：<%= @sender.email %></p>
+          <p>年齢：<%= @sender.age %>歳</p>
+          <p>住所：<%= @sender.prefecture %><%= @sender.city %></p>
+          <p>職業：<%= @sender.job %></p>
+          <p>家族構成：大人 <%= @sender.family_adult %> 人、子ども <%= @sender.family_child %> 人</p>
+          <p>コメント：<%= @request.content %></p>
+        </div>
+      </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@
       <span>注意：全ての項目が登録されていないと、里親申請は出来ません。</span>
     </div>
       <div class="form">
+        <%= form_tag("/adopt/#{@post.id}/send_request", {multipart: true}) do %>
         <div class="form-body">
           <p>ユーザー名：<%= @current_user.name %></p>
           <p>メールアドレス：<%= @current_user.email %></p>
@@ -14,11 +15,14 @@
           <p>住所：<%= @current_user.prefecture %><%= @current_user.city %></p>
           <p>職業：<%= @current_user.job %></p>
           <p>家族構成：大人 <%= @current_user.family_adult %> 人、子ども <%= @current_user.family_child %> 人</p>
+          <p>コメント（任意）</p>
+          <textarea name="content"></textarea>
         </div>
         <div class="form-btn">
-          <%= link_to("送信する", "/adopt/#{@post.id}/send_request", {method: "post"}) %><br>
           <%= link_to("ユーザー情報を登録・変更する", "/users/#{@current_user.id}/edit") %>
+          <input type="submit" value="送信する">
         </div>
+        <% end %>
       </div>
   </div>
 </div>
