@@ -4,7 +4,100 @@
 
 
 
-.top img{
-  width: 100%;
-  opacity: 0.6;
+.top{
+
+  position: relative;
+
 }
+
+
+
+.top img{
+
+  width: 100%;
+
+  opacity: 0.6;
+
+}
+
+.top-contents{
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  -ms-transform: translate(-50%,-50%);
+
+  -webkit-transform: translate(-50%,-50%);
+
+  transform: translate(-50%,-50%);
+
+}
+
+.top-message{
+
+  font-size: 50px;
+
+  font-weight: bold;
+
+  color: #ff69b4;
+
+}
+
+
+
+.top-btn a {
+
+width: 160px;
+
+height: 40px;
+
+text-align: center;
+
+text-decoration: none;
+
+color: #fff;
+
+border:1px solid #ffb6c1;
+
+background: #ffb6c1;
+
+overflow: hidden;
+
+z-index: 1 !important;
+
+}
+
+
+
+.top-btn a:hover {
+
+color: white;
+
+background-color: #db7093
+
+}
+
+
+
+.bottom{
+
+  height: 500px;
+
+}
+
+.title{
+
+  text-align: center;
+
+  margin-top: 40px;
+
+}
+
+.servicecontent{
+
+  margin: 20px 100px;
+
+} 
